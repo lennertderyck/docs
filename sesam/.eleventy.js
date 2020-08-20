@@ -21,7 +21,7 @@ module.exports = (eleventyConfig) => {
     });
     
     return {
-        pathPrefix: '',
+        pathPrefix: 'sesam',
         dir: {
             output: '../dist/sesam',
             input: 'src/',

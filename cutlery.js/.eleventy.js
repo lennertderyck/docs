@@ -21,9 +21,9 @@ module.exports = (eleventyConfig) => {
     });
     
     return {
-        pathPrefix: '',
+        pathPrefix: 'cutleryjs',
         dir: {
-            output: '../dist/cutlery.js',
+            output: '../dist/cutleryjs',
             input: 'src/',
             data: '_data',
             pages: '_pages',
