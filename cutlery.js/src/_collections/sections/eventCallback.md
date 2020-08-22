@@ -28,7 +28,7 @@ Stand-alone function, outside eventlistener;
 ```
 
 ```js
-eventCallback('btn[data-do="hideMenu"]', (target) => {
+eventCallback('button[data-do="hideMenu"]', (target) => {
     hideSomething(target);
 }, false)
 ```
