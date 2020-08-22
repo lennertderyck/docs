@@ -39,6 +39,6 @@ When the function is launched it watches the target element of the eventlistener
 
 So you could have a couple of buttons, with like a data-attribute, with inside them an icon and some span-elements. What would happen in a normal case: you'd click inside the button, on a span. But on the click event you want to return the value of the data-attribute. Since you clicked on that span element inside the button it would return nothing and probably break a function or two since it doesn't returns a value.
 
-Now with this function you'd click inside the button, but with the css-selector set to something like ```button[data-do-on-click]``` you could click inside the button, on a span, the function would only return the button, so the css-selector works like a filter and will select the element closest to it.
+Now with this function you'd click inside the button, but with the css-selector set to something like ```button[data-do]``` you could click inside the button, on a span, the function would only return the button, so the css-selector works like a filter and will select the element closest to it.
 
 For more information about this aspect of the function read about the [closest](https://developer.mozilla.org/en-US/docs/Web/API/Element/closest)-function.
