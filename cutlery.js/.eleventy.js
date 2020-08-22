@@ -21,14 +21,14 @@ module.exports = (eleventyConfig) => {
     });
     
     return {
-        pathPrefix: 'cutleryjs',
+        pathPrefix: '',
         dir: {
-            output: '../dist/cutleryjs',
+            output: './dist',
             input: 'src/',
             data: '_data',
             pages: '_pages',
             includes: '_includes',
-            layouts: '_layouts'
+            layouts: '_layouts',
         },
         markdownTemplateEngine: 'liquid',
         htmlTemplateEngine: 'liquid',

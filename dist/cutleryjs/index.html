@@ -62,10 +62,6 @@
                         <small class="d-block text-dimmed">Checks if an element is a node, if not it returns a node</small>
                         <hr>
                     
-                        <a class="small d-block" href="#eventcallback">eventCallback</a>
-                        <small class="d-block text-dimmed">Execute code when a eventlistener is triggered</small>
-                        <hr>
-                    
                         <a class="small d-block" href="#getformdata">getFormData</a>
                         <small class="d-block text-dimmed">Retrieve formdata, without submitting</small>
                         <hr>
@@ -80,6 +76,10 @@
                     
                         <a class="small d-block" href="#new-element">new Element</a>
                         <small class="d-block text-dimmed">Easily create new nodes</small>
+                        <hr>
+                    
+                        <a class="small d-block" href="#eventcallback">eventCallback</a>
+                        <small class="d-block text-dimmed">Execute code when a eventlistener is triggered</small>
                         <hr>
                     
                 </aside>
@@ -129,6 +129,8 @@
 <pre><code class="language-html">&lt;link rel=&quot;stylesheet&quot; href=&quot;https://unpkg.com/browse/cutleryjs/dist/css/index.css&quot;&gt;
 </code></pre>
 
+        
+        ./src/_collections/sections/setup.md
     </div>
 
     <div class="docs-section" id="node">
@@ -155,6 +157,8 @@ const footer = node('#app footer');
 const cards = node('#app &gt; .cards &gt; .card', true); 
 </code></pre>
 
+        
+        ./src/_collections/sections/node.md
     </div>
 
     <div class="docs-section" id="returnnode">
@@ -189,49 +193,8 @@ const paneText = returnText($pane);
 const userDetails = returnText('#app .user &gt; .user__details');
 </code></pre>
 
-    </div>
-
-    <div class="docs-section" id="eventcallback">
-        <h3 class="docs-section__title">
-            eventCallback
-        </h3>
         
-            <p>Execute code when a eventlistener is triggered</p>
-        
-        
-            <pre class="unstyle docs-section__function"><code>eventCallback(selector, callback[, action = true])</code></pre>
-        
-        <hr>
-        <ul>
-<li><strong>node</strong> <em>selector</em>: a css-selector</li>
-<li><strong>callback</strong> <em>function</em>: the code that will be executed, returns the event target</li>
-<li><strong>action</strong> <em>boolean</em>: set to <code>false</code> if the element that has to be detected isn't defined by a <code>data-action</code> attribute</li>
-</ul>
-<hr>
-<p>You would use this function if you want to limit the eventlisteners you add to a page.</p>
-<p><strong>How you would use this function</strong></p>
-<ul>
-<li>Add it inside an eventlistener</li>
-<li>Set the selector-parameter to the css-selector of the element that you want to detect</li>
-<li>Add code that has to be executed when the element is detected</li>
-</ul>
-<h4>Examples</h4>
-<p>Stand-alone function, outside eventlistener;</p>
-<pre><code class="language-html">&lt;button data-do=&quot;hideMenu&quot;&gt;hide menu&lt;/div&gt;
-&lt;div class=&quot;menu&quot;&gt;
-    menustuff...
-&lt;/div&gt;
-</code></pre>
-<pre><code class="language-js">eventCallback('btn[data-do=&quot;hideMenu&quot;]', (target) =&gt; {
-    hideSomething(target);
-}, false)
-</code></pre>
-<h4>How it works</h4>
-<p>When the function is launched it watches the target element of the eventlistener. If the css-selector of this element matches the given selector the callback will be executed.</p>
-<p>So you could have a couple of buttons, with like a data-attribute, with inside them an icon and some span-elements. What would happen in a normal case: you'd click inside the button, on a span. But on the click event you want to return the value of the data-attribute. Since you clicked on that span element inside the button it would return nothing and probably break a function or two since it doesn't returns a value.</p>
-<p>Now with this function you'd click inside the button, but with the css-selector set to something like <code>button[data-do-on-click]</code> you could click inside the button, on a span, the function would only return the button, so the css-selector works like a filter and will select the element closest to it.</p>
-<p>For more information about this aspect of the function read about the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/closest">closest</a>-function.</p>
-
+        ./src/_collections/sections/returnNode.md
     </div>
 
     <div class="docs-section" id="getformdata">
@@ -275,6 +238,8 @@ These values will be converted in numbers and returned</p>
 <p><strong>file</strong><br>
 A file field will return all properties of this field as an json object.</p>
 
+        
+        ./src/_collections/sections/getFormData.md
     </div>
 
     <div class="docs-section" id="returntag">
@@ -298,6 +263,8 @@ all.forEach(el =&gt; {
 })
 </code></pre>
 
+        
+        ./src/_collections/sections/returnTag.md
     </div>
 
     <div class="docs-section" id="fieldtypes">
@@ -323,6 +290,8 @@ const form = document.querySelector('#newUserForm');
 const fields = fieldTypes(form);
 </code></pre>
 
+        
+        ./src/_collections/sections/fieldTypes.md
     </div>
 
     <div class="docs-section" id="new-element">
@@ -403,6 +372,53 @@ element.return().remove();
 <p>You can use the methods throughout the entire javascript-file, depending on when and where you declare the object.</p>
 <p>You could add the object to json-object, call it later in your script and apply these same methods.</p>
 
+        
+        ./src/_collections/sections/Elemtent.md
+    </div>
+
+    <div class="docs-section" id="eventcallback">
+        <h3 class="docs-section__title">
+            eventCallback
+        </h3>
+        
+            <p>Execute code when a eventlistener is triggered</p>
+        
+        
+            <pre class="unstyle docs-section__function"><code>eventCallback(selector, callback[, action = true])</code></pre>
+        
+        <hr>
+        <ul>
+<li><strong>node</strong> <em>selector</em>: a css-selector</li>
+<li><strong>callback</strong> <em>function</em>: the code that will be executed, returns the event target</li>
+<li><strong>action</strong> <em>boolean</em>: set to <code>false</code> if the element that has to be detected isn't defined by a <code>data-action</code> attribute</li>
+</ul>
+<hr>
+<p>You would use this function if you want to limit the eventlisteners you add to a page.</p>
+<p><strong>How you would use this function</strong></p>
+<ul>
+<li>Add it inside an eventlistener</li>
+<li>Set the selector-parameter to the css-selector of the element that you want to detect</li>
+<li>Add code that has to be executed when the element is detected</li>
+</ul>
+<h4>Examples</h4>
+<p>Stand-alone function, outside eventlistener;</p>
+<pre><code class="language-html">&lt;button data-do=&quot;hideMenu&quot;&gt;hide menu&lt;/div&gt;
+&lt;div class=&quot;menu&quot;&gt;
+    menustuff...
+&lt;/div&gt;
+</code></pre>
+<pre><code class="language-js">eventCallback('button[data-do=&quot;hideMenu&quot;]', (target) =&gt; {
+    hideSomething(target);
+}, false)
+</code></pre>
+<h4>How it works</h4>
+<p>When the function is launched it watches the target element of the eventlistener. If the css-selector of this element matches the given selector the callback will be executed.</p>
+<p>So you could have a couple of buttons, with like a data-attribute, with inside them an icon and some span-elements. What would happen in a normal case: you'd click inside the button, on a span. But on the click event you want to return the value of the data-attribute. Since you clicked on that span element inside the button it would return nothing and probably break a function or two since it doesn't returns a value.</p>
+<p>Now with this function you'd click inside the button, but with the css-selector set to something like <code>button[data-do]</code> you could click inside the button, on a span, the function would only return the button, so the css-selector works like a filter and will select the element closest to it.</p>
+<p>For more information about this aspect of the function read about the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/closest">closest</a>-function.</p>
+
+        
+        ./src/_collections/sections/eventCallback.md
     </div>
 
 
