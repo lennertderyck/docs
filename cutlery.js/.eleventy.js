@@ -1,6 +1,15 @@
 const fs = require("fs");
 
+const options = {
+    baseUrl: '../dist/',
+    name: 'cutlery.js'
+}
+
 module.exports = (eleventyConfig) => { 
+    eleventyConfig.setBrowserSyncConfig({
+        server: options.baseUrl,
+        startPath: `/${options.name}`
+    });
     
     eleventyConfig.setQuietMode(true);
     eleventyConfig.addWatchTarget("./src/");
@@ -16,14 +25,14 @@ module.exports = (eleventyConfig) => {
     eleventyConfig.addLayoutAlias('page', 'page.liquid');
     
     // collections
-    eleventyConfig.addCollection("sections", (collection) => {
+    eleventyConfig.addCollection('sections', (collection) => {
         return collection.getFilteredByGlob("./src/_collections/sections/*.md");
     });
     
     return {
-        pathPrefix: 'cutlery.js',
+        pathPrefix: options.name,
         dir: {
-            output: '../dist/cutlery.js',
+            output: `${options.baseUrl}${options.name}`,
             input: 'src/',
             data: '_data',
             pages: '_pages',
