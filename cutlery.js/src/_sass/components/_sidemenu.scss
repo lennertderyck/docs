@@ -1,5 +1,7 @@
 aside {
     position: sticky;
     top: 130px;
+    max-height: 80vh;
     height: fit-content;
+    overflow: scroll;
 }
