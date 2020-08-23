@@ -1,0 +1,34 @@
+<ul>
+<li><strong>url</strong> <em>string</em>: the source of the file you want to fetch</li>
+<li><strong>options</strong> <em>object</em>: options you can set for the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch">fetch web Api</a></li>
+</ul>
+<hr>
+<h4>The first step</h4>
+<p>Begin by creating a new instace</p>
+<blockquote>
+<p>In these cases the classes are used inside an async function</p>
+</blockquote>
+<pre><code class="language-js">// since the class returns a promise use async await
+const corona = await new Api('https://api.thevirustracker.com/free-api?countryTotal=BE');
+</code></pre>
+<h4>Get the data</h4>
+<p>You have several output-formats you can choose from</p>
+<p><strong>Status</strong>
+Get the response data from a call</p>
+<pre><code class="language-js">await corona.status();
+</code></pre>
+<p><strong>JSON</strong>
+This will do a fetch call, convert the data to JSON and return it</p>
+<pre><code class="language-js">await corona.JSON();
+</code></pre>
+<p><strong>TEXT</strong>
+Returns the response data as text so you can manipulate it as you want</p>
+<pre><code class="language-js">await corona.TEXT();
+</code></pre>
+<p><strong>Coming soon: NODE</strong>
+If you need to fetch a webpage this method will return nodes</p>
+<pre><code class="language-js">await corona.NODE()
+</code></pre>
+<blockquote>
+<p>Every time you call an output-format, the data is fetched, keep this is mind when you have a limit on calls. We'll try to fix this as soon as possible.</p>
+</blockquote>

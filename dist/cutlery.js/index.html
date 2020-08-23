@@ -30,6 +30,7 @@
     
     <!-- integrations -->
     <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.0/css/line.css">
     
     <!-- webfonts -->
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
@@ -82,18 +83,18 @@
                         <small class="d-block text-dimmed">Easily create new nodes</small>
                         <hr>
                     
-                        <a class="small d-block" href="#new-element">new Element</a>
-                        <small class="d-block text-dimmed">Easily create new nodes</small>
+                        <a class="small d-block" href="#connection">connection</a>
+                        <small class="d-block text-dimmed">Get the users internet speed/connection</small>
                         <hr>
                     
-                        <a class="small d-block" href="#eventcallback">eventCallback</a>
-                        <small class="d-block text-dimmed">Execute code when a eventlistener is triggered</small>
+                        <a class="small d-block" href="#new-api">new Api</a>
+                        <small class="d-block text-dimmed">Fetch data end choose the output format</small>
                         <hr>
                     
                 </aside>
             </div>
             <main id="content" class="col-12 col-lg-9">
-                <div class="container">
+                <div class="">
     
 
     <div class="docs-section" id="setup-cutlery.js">
@@ -398,93 +399,6 @@ const fields = fieldTypes(form);
 </ul>
 <hr>
 <h4>Steps</h4>
-<h5>Create new instance</h5>
-<pre><code class="language-js">const element = new Element('div');
-</code></pre>
-<h5>Add (html-)content</h5>
-<p>You can set the innerHTML of the element using the inner-function;</p>
-<pre><code class="language-js">element.inner(`
-    &lt;div class=&quot;card__header&quot;&gt;&lt;h3&gt;Card-title&lt;/h3&gt;&lt;/div&gt;
-    &lt;div class=&quot;card__body&quot;&gt;Some content&lt;/div&gt;
-    &lt;div class=&quot;card__footer&quot;&gt;&lt;button data-action=&quot;close&quot;&gt;&lt;/button&gt;&lt;/div&gt;
-`)
-</code></pre>
-<p>You can also use the return-function to set the innerHTML.</p>
-<pre><code class="language-js">element.return().innerHTML = `
-    &lt;div class=&quot;card__header&quot;&gt;&lt;h3&gt;Card-title&lt;/h3&gt;&lt;/div&gt;
-    &lt;div class=&quot;card__body&quot;&gt;Some content&lt;/div&gt;
-    &lt;div class=&quot;card__footer&quot;&gt;&lt;button data-action=&quot;close&quot;&gt;&lt;/button&gt;&lt;/div&gt;
-`;
-</code></pre>
-<h5>Add classes (array)</h5>
-<p>Add an array directly in the function</p>
-<pre><code class="language-js">element.class(['card', 'animate__animated', 'animate__zoomIn']);
-</code></pre>
-<p>or create an array first</p>
-<pre><code class="language-js">const classes = ['card', 'animate__animated', 'animate__zoomIn'];
-element.class(classes);
-</code></pre>
-<h5>Set attributes (nested arrays)</h5>
-<p>Set attributes for a node as nested arrays. You can also make an array first, outside the function and then add the variable to the function.</p>
-<pre><code class="language-js">element.attributes([
-    ['data-id', 'fJEhegfHJEjknekiz'],
-    ['data-tooltip', 'hover over this card']
-]);
-</code></pre>
-<h5>Append (css-selector|node)</h5>
-<p>Append the node to another node. You can append the element multiple times to the DOM.</p>
-<pre><code class="language-js">element.append('main &gt; .card__list');
-</code></pre>
-<h5>Prepend (css-selector|node)</h5>
-<p>Prepend the node to another node. You can append the element multiple times to the DOM.</p>
-<pre><code class="language-js">element.prepend('main &gt; .card__list');
-</code></pre>
-<h5>The Return of The Node</h5>
-<p>Return the node so you can easily use it in other functions for example.</p>
-<pre><code class="language-js">element.return();
-</code></pre>
-<p>When you use the return-function you can manipulate the object as you would with a normal node.
-(See the inner-function for another example)</p>
-<pre><code class="language-js">// check if the node contains a string
-element.return().contains('cheese') // returns boolean
-
-// remove when needed
-element.return().remove();
-</code></pre>
-<h5>Log</h5>
-<p>You can easily log the element so you can evaluate the result.</p>
-<pre><code class="language-js">element.log();
-</code></pre>
-<hr>
-<h4>Note</h4>
-<p>You can use the methods throughout the entire javascript-file, depending on when and where you declare the object.</p>
-<p>You could add the object to json-object, call it later in your script and apply these same methods.</p>
-
-        
-        <a class="docs-section__edit d-none d-lg-flex" href="https://github.com/lennertderyck/docs/edit/master/cutlery.js/src/_collections/sections/Elemtent (conflicted copy 2020-08-20 234335).md" target="_blank">
-            <div class="edit__label">
-                <span class="small">Bewerken op GitHub</span> 
-            </div>
-            <i class="uil uil-pen"></i>
-        </a>
-    </div>
-
-    <div class="docs-section" id="new-element">
-        <h3 class="docs-section__title">
-            new Element
-        </h3>
-        
-            <p>Easily create new nodes</p>
-        
-        
-            <pre class="unstyle docs-section__function"><code>new Element(tagname)</code></pre>
-        
-        <hr>
-        <ul>
-<li><strong>tagname</strong> <em>string</em>: the tagname of the node you want to create</li>
-</ul>
-<hr>
-<h4>Steps</h4>
 <p><strong>Create new instance</strong></p>
 <pre><code class="language-js">const element = new Element('div');
 </code></pre>
@@ -546,7 +460,7 @@ You can easily log the element so you can evaluate the result.</p>
 You can use the return-function so you can add the node somewhere</p>
 
         
-        <a class="docs-section__edit d-none d-lg-flex" href="https://github.com/lennertderyck/docs/edit/master/cutlery.js/src/_collections/sections/Elemtent.md" target="_blank">
+        <a class="docs-section__edit d-none d-lg-flex" href="https://github.com/lennertderyck/docs/edit/master/cutlery.js/src/_collections/sections/Element.md" target="_blank">
             <div class="edit__label">
                 <span class="small">Bewerken op GitHub</span> 
             </div>
@@ -554,49 +468,102 @@ You can use the return-function so you can add the node somewhere</p>
         </a>
     </div>
 
-    <div class="docs-section" id="eventcallback">
+    <div class="docs-section" id="connection">
         <h3 class="docs-section__title">
-            eventCallback
+            connection
         </h3>
         
-            <p>Execute code when a eventlistener is triggered</p>
+        
+            <pre class="unstyle docs-section__function"><code>connection</code></pre>
+        
+        <hr>
+        <h4>Get state</h4>
+<p>Get the connectionstate once, but you can call it as much as you want</p>
+<pre><code class="language-js">connection.state(); // returns integer
+</code></pre>
+<p><strong>States</strong><br>
+The integer that is returned corresponds to a certain status</p>
+<ul>
+<li>0: connection offline</li>
+<li>1: slow/bad connection</li>
+<li>2: good connection</li>
+<li>3: strong connection</li>
+</ul>
+<h4>Watch the connection</h4>
+<p>The <code>watch</code> function let's you set an eventlistener for the users' connection. It will execute the callback you set, every time the users' connection the changes.</p>
+<p>The watch function returns a integer in the same way the method above does.</p>
+<pre><code class="language-js">const connectionStateText = (state) =&gt; {
+    return {
+        0: 'offline',
+        1: 'slow/bad',
+        2: 'good',
+        3: 'strong'
+    }[state];
+}
+
+connection.watch((state) =&gt; {
+    const text = connectionStateText(state);
+    console.log(`your connection is ${text}`);
+})
+</code></pre>
+<!-- Uitbreiding naar type (wifi/cable/...) -->
+        
+        <a class="docs-section__edit d-none d-lg-flex" href="https://github.com/lennertderyck/docs/edit/master/cutlery.js/src/_collections/sections/connection.md" target="_blank">
+            <div class="edit__label">
+                <span class="small">Bewerken op GitHub</span> 
+            </div>
+            <i class="uil uil-pen"></i>
+        </a>
+    </div>
+
+    <div class="docs-section" id="new-api">
+        <h3 class="docs-section__title">
+            new Api
+        </h3>
+        
+            <p>Fetch data end choose the output format</p>
         
         
-            <pre class="unstyle docs-section__function"><code>eventCallback(selector, callback[, action = true])</code></pre>
+            <pre class="unstyle docs-section__function"><code>new Api(url [, options = {method: 'GET'}])</code></pre>
         
         <hr>
         <ul>
-<li><strong>node</strong> <em>selector</em>: a css-selector</li>
-<li><strong>callback</strong> <em>function</em>: the code that will be executed, returns the event target</li>
-<li><strong>action</strong> <em>boolean</em>: set to <code>false</code> if the element that has to be detected isn't defined by a <code>data-action</code> attribute</li>
+<li><strong>url</strong> <em>string</em>: the source of the file you want to fetch</li>
+<li><strong>options</strong> <em>object</em>: options you can set for the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch">fetch web Api</a></li>
 </ul>
 <hr>
-<p>You would use this function if you want to limit the eventlisteners you add to a page.</p>
-<p><strong>How you would use this function</strong></p>
-<ul>
-<li>Add it inside an eventlistener</li>
-<li>Set the selector-parameter to the css-selector of the element that you want to detect</li>
-<li>Add code that has to be executed when the element is detected</li>
-</ul>
-<h4>Examples</h4>
-<p>Stand-alone function, outside eventlistener;</p>
-<pre><code class="language-html">&lt;button data-do=&quot;hideMenu&quot;&gt;hide menu&lt;/div&gt;
-&lt;div class=&quot;menu&quot;&gt;
-    menustuff...
-&lt;/div&gt;
+<h4>The first step</h4>
+<p>Begin by creating a new instace</p>
+<blockquote>
+<p>In these cases the classes are used inside an async function</p>
+</blockquote>
+<pre><code class="language-js">// since the class returns a promise use async await
+const corona = await new Api('https://api.thevirustracker.com/free-api?countryTotal=BE');
 </code></pre>
-<pre><code class="language-js">eventCallback('button[data-do=&quot;hideMenu&quot;]', (target) =&gt; {
-    hideSomething(target);
-}, false)
+<h4>Get the data</h4>
+<p>You have several output-formats you can choose from</p>
+<p><strong>Status</strong>
+Get the response data from a call</p>
+<pre><code class="language-js">await corona.status();
 </code></pre>
-<h4>How it works</h4>
-<p>When the function is launched it watches the target element of the eventlistener. If the css-selector of this element matches the given selector the callback will be executed.</p>
-<p>So you could have a couple of buttons, with like a data-attribute, with inside them an icon and some span-elements. What would happen in a normal case: you'd click inside the button, on a span. But on the click event you want to return the value of the data-attribute. Since you clicked on that span element inside the button it would return nothing and probably break a function or two since it doesn't returns a value.</p>
-<p>Now with this function you'd click inside the button, but with the css-selector set to something like <code>button[data-do]</code> you could click inside the button, on a span, the function would only return the button, so the css-selector works like a filter and will select the element closest to it.</p>
-<p>For more information about this aspect of the function read about the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/closest">closest</a>-function.</p>
+<p><strong>JSON</strong>
+This will do a fetch call, convert the data to JSON and return it</p>
+<pre><code class="language-js">await corona.JSON();
+</code></pre>
+<p><strong>TEXT</strong>
+Returns the response data as text so you can manipulate it as you want</p>
+<pre><code class="language-js">await corona.TEXT();
+</code></pre>
+<p><strong>Coming soon: NODE</strong>
+If you need to fetch a webpage this method will return nodes</p>
+<pre><code class="language-js">await corona.NODE()
+</code></pre>
+<blockquote>
+<p>Every time you call an output-format, the data is fetched, keep this is mind when you have a limit on calls. We'll try to fix this as soon as possible.</p>
+</blockquote>
 
         
-        <a class="docs-section__edit d-none d-lg-flex" href="https://github.com/lennertderyck/docs/edit/master/cutlery.js/src/_collections/sections/eventCallback (conflicted copy 2020-08-22 131941).md" target="_blank">
+        <a class="docs-section__edit d-none d-lg-flex" href="https://github.com/lennertderyck/docs/edit/master/cutlery.js/src/_collections/sections/Api.md" target="_blank">
             <div class="edit__label">
                 <span class="small">Bewerken op GitHub</span> 
             </div>
@@ -625,8 +592,9 @@ You can use the return-function so you can add the node somewhere</p>
         </div>
     </div>
     <footer>
-    <div class="container py-5">
+    <div class="container py-5 d-flex justify-content-between">
         <small><span data-replace="copyright"></span></small>
+        <small>Sourcecode on <a href="https://github.com/lennertderyck/docs/tree/master/cutlery.js">GitHub</a></small>
     </div>
 </footer>
     

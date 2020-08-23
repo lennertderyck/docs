@@ -1,0 +1,30 @@
+<h4>Get state</h4>
+<p>Get the connectionstate once, but you can call it as much as you want</p>
+<pre><code class="language-js">connection.state(); // returns integer
+</code></pre>
+<p><strong>States</strong><br>
+The integer that is returned corresponds to a certain status</p>
+<ul>
+<li>0: connection offline</li>
+<li>1: slow/bad connection</li>
+<li>2: good connection</li>
+<li>3: strong connection</li>
+</ul>
+<h4>Watch the connection</h4>
+<p>The <code>watch</code> function let's you set an eventlistener for the users' connection. It will execute the callback you set, every time the users' connection the changes.</p>
+<p>The watch function returns a integer in the same way the method above does.</p>
+<pre><code class="language-js">const connectionStateText = (state) =&gt; {
+    return {
+        0: 'offline',
+        1: 'slow/bad',
+        2: 'good',
+        3: 'strong'
+    }[state];
+}
+
+connection.watch((state) =&gt; {
+    const text = connectionStateText(state);
+    console.log(`your connection is ${text}`);
+})
+</code></pre>
+<!-- Uitbreiding naar type (wifi/cable/...) -->
