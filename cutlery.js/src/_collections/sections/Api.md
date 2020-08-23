@@ -9,8 +9,8 @@ description: Fetch data end choose the output format
 
 ---
 
-#### The first step
-Begin by creating a new instace
+#### Create an instance
+Begin by creating a new insxtace
 
 > In these cases the classes are used inside an async function
 

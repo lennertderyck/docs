@@ -4,7 +4,7 @@ parameters: node[, multiple = false]
 description: Checks if an element is a node, if not it returns a node
 ---
 
-- **node** *css-selector* | *node*: a css-selector or an actual node
+- **node** *string* | *node*: a css-selector or an actual node
 - **multiple** *boolean*: return single node or node-list (querySelectorAll)
 
 ---

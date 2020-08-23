@@ -4,7 +4,7 @@ description: Retrieve formdata, without submitting
 parameters: form
 ---
 
-- **form** *css-selector* | *node*: the form itself as css-selector or an actual node, most of the time this is the event target of an (submit) eventlistener
+- **form** *string* | *node*: the form itself as css-selector or an actual node, most of the time this is the event target of an (submit) eventlistener
 
 ---
 

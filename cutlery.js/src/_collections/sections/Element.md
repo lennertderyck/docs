@@ -15,7 +15,7 @@ description: Easily create new nodes
 const element = new Element('div');
 ```
 
-**Add (html-)content**
+**Add (html-)content**<br>
 You can set the innerHTML of the element using the inner-function;
 
 ```js
@@ -36,7 +36,7 @@ element.return().innerHTML = `
 `;
 ```
 
-**Add classes (array)**
+**Add classes (array)**<br>
 Add an array directly in the function
 
 ```js
@@ -50,7 +50,7 @@ const classes = ['card', 'animate__animated', 'animate__zoomIn'];
 element.class(classes);
 ```
 
-**Set attributes (nested arrays)**
+**Set attributes (nested arrays)**<br>
 Set attributes for a node as nested arrays. You can also make an array first, outside the function and then add the variable to the function.
 
 ```js
@@ -60,19 +60,19 @@ element.attributes([
 ]);
 ```
 
-**Append (css-selector|node)**
+**Append (css-selector|node)**<br>
 Append the node to another node. You can append the element multiple times to the DOM.
 ```js
 element.append('main > .card__list');
 ```
 
-**Prepend (css-selector|node)**
+**Prepend (css-selector|node)**<br>
 Prepend the node to another node. You can append the element multiple times to the DOM.
 ```js
 element.prepend('main > .card__list');
 ```
 
-**The Return of the node**
+**The Return of the Node**<br>
 Return the node so you can easily use it in other functions for example.
 
 ```js
@@ -90,7 +90,7 @@ element.return().
 element.return().remove();
 ```
 
-**Log**
+**Log**<br>
 You can easily log the element so you can evaluate the result.
 ```js
 element.log();

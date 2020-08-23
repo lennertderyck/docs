@@ -4,7 +4,7 @@ parameters: node
 description: Returns the fieldtype of an input-element
 ---
 
-- **node** *css-selector* | *node*: a css-selector or an actual node
+- **node** *string* | *node*: a css-selector or an actual node
 
 ---
 

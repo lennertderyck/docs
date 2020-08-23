@@ -4,7 +4,7 @@ parameters: node[, multiple = false]
 description: Simple function to return a node
 ---
 
-- **node** *css-selector*: css-selector of an element
+- **node** *string*: css-selector of an element
 - **multiple** *boolean*:  return single node or node-list (querySelectorAll)
 
 ---

@@ -1,10 +1,10 @@
 ---
 title: eventCallback
-parameters: selector, callback[, action = true]
+parameters: node, callback[, action = true]
 description: Execute code when a eventlistener is triggered
 ---
 
-- **node** *selector*: a css-selector
+- **node** *string*: a css-selector
 - **callback** *function*: the code that will be executed, returns the event target
 - **action** *boolean*: set to `false` if the element that has to be detected isn't defined by a ```data-action``` attribute
 
