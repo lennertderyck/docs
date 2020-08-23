@@ -79,4 +79,16 @@ main {
             padding-right: .4rem;
         }
     }
+    
+    blockquote {
+        margin: 1.8rem 0;
+        padding: .6rem .8rem;
+        background: #007bff21;
+        border-radius: 8px;
+        color: #4c7db3;
+    }
+}
+
+blockquote *:last-child {
+    margin-bottom: 0;
 }

@@ -13,19 +13,19 @@ const corona = await new Api('https://api.thevirustracker.com/free-api?countryTo
 </code></pre>
 <h4>Get the data</h4>
 <p>You have several output-formats you can choose from</p>
-<p><strong>Status</strong>
+<p><strong>Status</strong><br>
 Get the response data from a call</p>
 <pre><code class="language-js">await corona.status();
 </code></pre>
-<p><strong>JSON</strong>
+<p><strong>JSON</strong><br>
 This will do a fetch call, convert the data to JSON and return it</p>
 <pre><code class="language-js">await corona.JSON();
 </code></pre>
-<p><strong>TEXT</strong>
+<p><strong>TEXT</strong><br>
 Returns the response data as text so you can manipulate it as you want</p>
 <pre><code class="language-js">await corona.TEXT();
 </code></pre>
-<p><strong>Coming soon: NODE</strong>
+<p><strong>Coming soon: NODE</strong><br>
 If you need to fetch a webpage this method will return nodes</p>
 <pre><code class="language-js">await corona.NODE()
 </code></pre>
