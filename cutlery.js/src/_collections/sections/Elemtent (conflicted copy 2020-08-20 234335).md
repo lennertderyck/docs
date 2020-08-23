@@ -9,13 +9,13 @@ description: Easily create new nodes
 ---
 
 #### Steps
-**Create new instance**
+##### Create new instance
 
 ```js
 const element = new Element('div');
 ```
 
-**Add (html-)content**
+##### Add (html-)content
 You can set the innerHTML of the element using the inner-function;
 
 ```js
@@ -36,7 +36,7 @@ element.return().innerHTML = `
 `;
 ```
 
-**Add classes (array)**
+##### Add classes (array)
 Add an array directly in the function
 
 ```js
@@ -50,7 +50,7 @@ const classes = ['card', 'animate__animated', 'animate__zoomIn'];
 element.class(classes);
 ```
 
-**Set attributes (nested arrays)**
+##### Set attributes (nested arrays)
 Set attributes for a node as nested arrays. You can also make an array first, outside the function and then add the variable to the function.
 
 ```js
@@ -60,19 +60,19 @@ element.attributes([
 ]);
 ```
 
-**Append (css-selector|node)**
+##### Append (css-selector|node)
 Append the node to another node. You can append the element multiple times to the DOM.
 ```js
 element.append('main > .card__list');
 ```
 
-**Prepend (css-selector|node)**
+##### Prepend (css-selector|node)
 Prepend the node to another node. You can append the element multiple times to the DOM.
 ```js
 element.prepend('main > .card__list');
 ```
 
-**The Return of the node**
+##### The Return of The Node
 Return the node so you can easily use it in other functions for example.
 
 ```js
@@ -83,18 +83,23 @@ When you use the return-function you can manipulate the object as you would with
 (See the inner-function for another example)
 
 ```js
-//
-element.return().
+// check if the node contains a string
+element.return().contains('cheese') // returns boolean
 
 // remove when needed
 element.return().remove();
 ```
 
-**Log**
+##### Log
 You can easily log the element so you can evaluate the result.
 ```js
 element.log();
 ```
 
-**Use the return-function**
-You can use the return-function so you can add the node somewhere 
+---
+
+#### Note
+
+You can use the methods throughout the entire javascript-file, depending on when and where you declare the object.
+
+You could add the object to json-object, call it later in your script and apply these same methods.

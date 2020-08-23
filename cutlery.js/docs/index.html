@@ -35,7 +35,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     
     <!-- local assets -->
-    <link rel="stylesheet" href="/cutlery.js/static/css/main.css">
+    <link rel="stylesheet" href="/static/css/main.css">
     <link rel="stylesheet" href="https://lib.lennertderyck.be/assets/min/flexy-cards.css">
 </head>
 <body data-page="home">
@@ -62,6 +62,10 @@
                         <small class="d-block text-dimmed">Checks if an element is a node, if not it returns a node</small>
                         <hr>
                     
+                        <a class="small d-block" href="#eventcallback">eventCallback</a>
+                        <small class="d-block text-dimmed">Execute code when a eventlistener is triggered</small>
+                        <hr>
+                    
                         <a class="small d-block" href="#getformdata">getFormData</a>
                         <small class="d-block text-dimmed">Retrieve formdata, without submitting</small>
                         <hr>
@@ -74,20 +78,8 @@
                         <small class="d-block text-dimmed">Returns the fieldtype of an input-element</small>
                         <hr>
                     
-                        <a class="small d-block" href="#eventcallback">eventCallback</a>
-                        <small class="d-block text-dimmed">Execute code when a eventlistener is triggered</small>
-                        <hr>
-                    
                         <a class="small d-block" href="#new-element">new Element</a>
                         <small class="d-block text-dimmed">Easily create new nodes</small>
-                        <hr>
-                    
-                        <a class="small d-block" href="#new-element">new Element</a>
-                        <small class="d-block text-dimmed">Easily create new nodes</small>
-                        <hr>
-                    
-                        <a class="small d-block" href="#eventcallback">eventCallback</a>
-                        <small class="d-block text-dimmed">Execute code when a eventlistener is triggered</small>
                         <hr>
                     
                 </aside>
@@ -137,13 +129,6 @@
 <pre><code class="language-html">&lt;link rel=&quot;stylesheet&quot; href=&quot;https://unpkg.com/browse/cutleryjs/dist/css/index.css&quot;&gt;
 </code></pre>
 
-        
-        <a class="docs-section__edit d-none d-lg-flex" href="https://github.com/lennertderyck/docs/edit/master/cutlery.js/src/_collections/sections/setup.md" target="_blank">
-            <div class="edit__label">
-                <span class="small">Bewerken op GitHub</span> 
-            </div>
-            <i class="uil uil-pen"></i>
-        </a>
     </div>
 
     <div class="docs-section" id="node">
@@ -170,13 +155,6 @@ const footer = node('#app footer');
 const cards = node('#app &gt; .cards &gt; .card', true); 
 </code></pre>
 
-        
-        <a class="docs-section__edit d-none d-lg-flex" href="https://github.com/lennertderyck/docs/edit/master/cutlery.js/src/_collections/sections/node.md" target="_blank">
-            <div class="edit__label">
-                <span class="small">Bewerken op GitHub</span> 
-            </div>
-            <i class="uil uil-pen"></i>
-        </a>
     </div>
 
     <div class="docs-section" id="returnnode">
@@ -211,125 +189,6 @@ const paneText = returnText($pane);
 const userDetails = returnText('#app .user &gt; .user__details');
 </code></pre>
 
-        
-        <a class="docs-section__edit d-none d-lg-flex" href="https://github.com/lennertderyck/docs/edit/master/cutlery.js/src/_collections/sections/returnNode.md" target="_blank">
-            <div class="edit__label">
-                <span class="small">Bewerken op GitHub</span> 
-            </div>
-            <i class="uil uil-pen"></i>
-        </a>
-    </div>
-
-    <div class="docs-section" id="getformdata">
-        <h3 class="docs-section__title">
-            getFormData
-        </h3>
-        
-            <p>Retrieve formdata, without submitting</p>
-        
-        
-            <pre class="unstyle docs-section__function"><code>getFormData(form)</code></pre>
-        
-        <hr>
-        <ul>
-<li><strong>form</strong> <em>css-selector</em> | <em>node</em>: the form itself as css-selector or an actual node, most of the time this is the event target of an (submit) eventlistener</li>
-</ul>
-<hr>
-<p>Just add the form as parameter and when the function is called it returns a Map object.</p>
-<p>The map keys are the name-values of the form elements. Input-elements that don't have a name-attribute will be ignored since the build in FormData API in browsers requires a name-attribute-value.</p>
-<h4>Examples</h4>
-<p>Stand-alone function, outside eventlistener;</p>
-<pre><code class="language-js">const newUserForm = document.querySelector('#newUserForm');
-const newUserData = getFormData(newUserForm); // returns Map object
-</code></pre>
-<p>Combined with an eventlistener and <a href="#eventcallback">eventCallback-function</a>;</p>
-<pre><code class="language-js">window.eventListener('submit', () =&gt; {
-    eventCallback('#newUserForm', (target) =&gt; {
-        const newUserData = getFormData(target); // returns Map object
-    }, false)
-})
-</code></pre>
-<h4>Why this function</h4>
-<p>It's far more convenient than manually selecting all form elements and getting their values.</p>
-<p>Just one function returns all the function.</p>
-<h4>Return of input-types</h4>
-<p>This is how values will be returned from different types of input fields.</p>
-<p><strong>text | passwords | textarea</strong><br>
-Just text will be returned</p>
-<p><strong>number | ranges</strong><br>
-These values will be converted in numbers and returned</p>
-<p><strong>file</strong><br>
-A file field will return all properties of this field as an json object.</p>
-
-        
-        <a class="docs-section__edit d-none d-lg-flex" href="https://github.com/lennertderyck/docs/edit/master/cutlery.js/src/_collections/sections/getFormData.md" target="_blank">
-            <div class="edit__label">
-                <span class="small">Bewerken op GitHub</span> 
-            </div>
-            <i class="uil uil-pen"></i>
-        </a>
-    </div>
-
-    <div class="docs-section" id="returntag">
-        <h3 class="docs-section__title">
-            returnTag
-        </h3>
-        
-            <p>Returns the tagname of an element</p>
-        
-        
-            <pre class="unstyle docs-section__function"><code>returnTag(node)</code></pre>
-        
-        <hr>
-        <ul>
-<li><strong>node</strong> <em>css-selector</em> | <em>node</em>: a css-selector or an actual node</li>
-</ul>
-<hr>
-<pre><code class="language-js">const all = document.querySelectorAll('*');
-all.forEach(el =&gt; {
-    console.log(returnTag(el));
-})
-</code></pre>
-
-        
-        <a class="docs-section__edit d-none d-lg-flex" href="https://github.com/lennertderyck/docs/edit/master/cutlery.js/src/_collections/sections/returnTag.md" target="_blank">
-            <div class="edit__label">
-                <span class="small">Bewerken op GitHub</span> 
-            </div>
-            <i class="uil uil-pen"></i>
-        </a>
-    </div>
-
-    <div class="docs-section" id="fieldtypes">
-        <h3 class="docs-section__title">
-            fieldTypes
-        </h3>
-        
-            <p>Returns the fieldtype of an input-element</p>
-        
-        
-            <pre class="unstyle docs-section__function"><code>fieldTypes(node)</code></pre>
-        
-        <hr>
-        <ul>
-<li><strong>node</strong> <em>css-selector</em> | <em>node</em>: a css-selector or an actual node</li>
-</ul>
-<hr>
-<p>When the node you assign to the function is a form-element, than the function will return a Map object. The keys are the name-attribute-values of the input-elements. Input-elements without a name-attribute will be ignored.</p>
-<p>In this function is the <a href="#returntag">returnTag</a>-function used.</p>
-<pre><code class="language-js">const inputField = fieldTypes('#newUserForm &gt; #newUserName');
-
-const form = document.querySelector('#newUserForm');
-const fields = fieldTypes(form);
-</code></pre>
-
-        
-        <a class="docs-section__edit d-none d-lg-flex" href="https://github.com/lennertderyck/docs/edit/master/cutlery.js/src/_collections/sections/fieldTypes.md" target="_blank">
-            <div class="edit__label">
-                <span class="small">Bewerken op GitHub</span> 
-            </div>
-            <i class="uil uil-pen"></i>
-        </a>
     </div>
 
     <div class="docs-section" id="eventcallback">
@@ -373,100 +232,97 @@ const fields = fieldTypes(form);
 <p>Now with this function you'd click inside the button, but with the css-selector set to something like <code>button[data-do-on-click]</code> you could click inside the button, on a span, the function would only return the button, so the css-selector works like a filter and will select the element closest to it.</p>
 <p>For more information about this aspect of the function read about the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/closest">closest</a>-function.</p>
 
-        
-        <a class="docs-section__edit d-none d-lg-flex" href="https://github.com/lennertderyck/docs/edit/master/cutlery.js/src/_collections/sections/eventCallback.md" target="_blank">
-            <div class="edit__label">
-                <span class="small">Bewerken op GitHub</span> 
-            </div>
-            <i class="uil uil-pen"></i>
-        </a>
     </div>
 
-    <div class="docs-section" id="new-element">
+    <div class="docs-section" id="getformdata">
         <h3 class="docs-section__title">
-            new Element
+            getFormData
         </h3>
         
-            <p>Easily create new nodes</p>
+            <p>Retrieve formdata, without submitting</p>
         
         
-            <pre class="unstyle docs-section__function"><code>new Element(tagname)</code></pre>
+            <pre class="unstyle docs-section__function"><code>getFormData(form)</code></pre>
         
         <hr>
         <ul>
-<li><strong>tagname</strong> <em>string</em>: the tagname of the node you want to create</li>
+<li><strong>form</strong> <em>css-selector</em> | <em>node</em>: the form itself as css-selector or an actual node, most of the time this is the event target of an (submit) eventlistener</li>
 </ul>
 <hr>
-<h4>Steps</h4>
-<h5>Create new instance</h5>
-<pre><code class="language-js">const element = new Element('div');
+<p>Just add the form as parameter and when the function is called it returns a Map object.</p>
+<p>The map keys are the name-values of the form elements. Input-elements that don't have a name-attribute will be ignored since the build in FormData API in browsers requires a name-attribute-value.</p>
+<h4>Examples</h4>
+<p>Stand-alone function, outside eventlistener;</p>
+<pre><code class="language-js">const newUserForm = document.querySelector('#newUserForm');
+const newUserData = getFormData(newUserForm); // returns Map object
 </code></pre>
-<h5>Add (html-)content</h5>
-<p>You can set the innerHTML of the element using the inner-function;</p>
-<pre><code class="language-js">element.inner(`
-    &lt;div class=&quot;card__header&quot;&gt;&lt;h3&gt;Card-title&lt;/h3&gt;&lt;/div&gt;
-    &lt;div class=&quot;card__body&quot;&gt;Some content&lt;/div&gt;
-    &lt;div class=&quot;card__footer&quot;&gt;&lt;button data-action=&quot;close&quot;&gt;&lt;/button&gt;&lt;/div&gt;
-`)
+<p>Combined with an eventlistener and <a href="#eventcallback">eventCallback-function</a>;</p>
+<pre><code class="language-js">window.eventListener('submit', () =&gt; {
+    eventCallback('#newUserForm', (target) =&gt; {
+        const newUserData = getFormData(target); // returns Map object
+    }, false)
+})
 </code></pre>
-<p>You can also use the return-function to set the innerHTML.</p>
-<pre><code class="language-js">element.return().innerHTML = `
-    &lt;div class=&quot;card__header&quot;&gt;&lt;h3&gt;Card-title&lt;/h3&gt;&lt;/div&gt;
-    &lt;div class=&quot;card__body&quot;&gt;Some content&lt;/div&gt;
-    &lt;div class=&quot;card__footer&quot;&gt;&lt;button data-action=&quot;close&quot;&gt;&lt;/button&gt;&lt;/div&gt;
-`;
-</code></pre>
-<h5>Add classes (array)</h5>
-<p>Add an array directly in the function</p>
-<pre><code class="language-js">element.class(['card', 'animate__animated', 'animate__zoomIn']);
-</code></pre>
-<p>or create an array first</p>
-<pre><code class="language-js">const classes = ['card', 'animate__animated', 'animate__zoomIn'];
-element.class(classes);
-</code></pre>
-<h5>Set attributes (nested arrays)</h5>
-<p>Set attributes for a node as nested arrays. You can also make an array first, outside the function and then add the variable to the function.</p>
-<pre><code class="language-js">element.attributes([
-    ['data-id', 'fJEhegfHJEjknekiz'],
-    ['data-tooltip', 'hover over this card']
-]);
-</code></pre>
-<h5>Append (css-selector|node)</h5>
-<p>Append the node to another node. You can append the element multiple times to the DOM.</p>
-<pre><code class="language-js">element.append('main &gt; .card__list');
-</code></pre>
-<h5>Prepend (css-selector|node)</h5>
-<p>Prepend the node to another node. You can append the element multiple times to the DOM.</p>
-<pre><code class="language-js">element.prepend('main &gt; .card__list');
-</code></pre>
-<h5>The Return of The Node</h5>
-<p>Return the node so you can easily use it in other functions for example.</p>
-<pre><code class="language-js">element.return();
-</code></pre>
-<p>When you use the return-function you can manipulate the object as you would with a normal node.
-(See the inner-function for another example)</p>
-<pre><code class="language-js">// check if the node contains a string
-element.return().contains('cheese') // returns boolean
+<h4>Why this function</h4>
+<p>It's far more convenient than manually selecting all form elements and getting their values.</p>
+<p>Just one function returns all the function.</p>
+<h4>Return of input-types</h4>
+<p>This is how values will be returned from different types of input fields.</p>
+<p><strong>text | passwords | textarea</strong><br>
+Just text will be returned</p>
+<p><strong>number | ranges</strong><br>
+These values will be converted in numbers and returned</p>
+<p><strong>file</strong><br>
+A file field will return all properties of this field as an json object.</p>
 
-// remove when needed
-element.return().remove();
-</code></pre>
-<h5>Log</h5>
-<p>You can easily log the element so you can evaluate the result.</p>
-<pre><code class="language-js">element.log();
-</code></pre>
-<hr>
-<h4>Note</h4>
-<p>You can use the methods throughout the entire javascript-file, depending on when and where you declare the object.</p>
-<p>You could add the object to json-object, call it later in your script and apply these same methods.</p>
+    </div>
 
+    <div class="docs-section" id="returntag">
+        <h3 class="docs-section__title">
+            returnTag
+        </h3>
         
-        <a class="docs-section__edit d-none d-lg-flex" href="https://github.com/lennertderyck/docs/edit/master/cutlery.js/src/_collections/sections/Elemtent (conflicted copy 2020-08-20 234335).md" target="_blank">
-            <div class="edit__label">
-                <span class="small">Bewerken op GitHub</span> 
-            </div>
-            <i class="uil uil-pen"></i>
-        </a>
+            <p>Returns the tagname of an element</p>
+        
+        
+            <pre class="unstyle docs-section__function"><code>returnTag(node)</code></pre>
+        
+        <hr>
+        <ul>
+<li><strong>node</strong> <em>css-selector</em> | <em>node</em>: a css-selector or an actual node</li>
+</ul>
+<hr>
+<pre><code class="language-js">const all = document.querySelectorAll('*');
+all.forEach(el =&gt; {
+    console.log(returnTag(el));
+})
+</code></pre>
+
+    </div>
+
+    <div class="docs-section" id="fieldtypes">
+        <h3 class="docs-section__title">
+            fieldTypes
+        </h3>
+        
+            <p>Returns the fieldtype of an input-element</p>
+        
+        
+            <pre class="unstyle docs-section__function"><code>fieldTypes(node)</code></pre>
+        
+        <hr>
+        <ul>
+<li><strong>node</strong> <em>css-selector</em> | <em>node</em>: a css-selector or an actual node</li>
+</ul>
+<hr>
+<p>When the node you assign to the function is a form-element, than the function will return a Map object. The keys are the name-attribute-values of the input-elements. Input-elements without a name-attribute will be ignored.</p>
+<p>In this function is the <a href="#returntag">returnTag</a>-function used.</p>
+<pre><code class="language-js">const inputField = fieldTypes('#newUserForm &gt; #newUserName');
+
+const form = document.querySelector('#newUserForm');
+const fields = fieldTypes(form);
+</code></pre>
+
     </div>
 
     <div class="docs-section" id="new-element">
@@ -545,63 +401,6 @@ You can easily log the element so you can evaluate the result.</p>
 <p><strong>Use the return-function</strong>
 You can use the return-function so you can add the node somewhere</p>
 
-        
-        <a class="docs-section__edit d-none d-lg-flex" href="https://github.com/lennertderyck/docs/edit/master/cutlery.js/src/_collections/sections/Elemtent.md" target="_blank">
-            <div class="edit__label">
-                <span class="small">Bewerken op GitHub</span> 
-            </div>
-            <i class="uil uil-pen"></i>
-        </a>
-    </div>
-
-    <div class="docs-section" id="eventcallback">
-        <h3 class="docs-section__title">
-            eventCallback
-        </h3>
-        
-            <p>Execute code when a eventlistener is triggered</p>
-        
-        
-            <pre class="unstyle docs-section__function"><code>eventCallback(selector, callback[, action = true])</code></pre>
-        
-        <hr>
-        <ul>
-<li><strong>node</strong> <em>selector</em>: a css-selector</li>
-<li><strong>callback</strong> <em>function</em>: the code that will be executed, returns the event target</li>
-<li><strong>action</strong> <em>boolean</em>: set to <code>false</code> if the element that has to be detected isn't defined by a <code>data-action</code> attribute</li>
-</ul>
-<hr>
-<p>You would use this function if you want to limit the eventlisteners you add to a page.</p>
-<p><strong>How you would use this function</strong></p>
-<ul>
-<li>Add it inside an eventlistener</li>
-<li>Set the selector-parameter to the css-selector of the element that you want to detect</li>
-<li>Add code that has to be executed when the element is detected</li>
-</ul>
-<h4>Examples</h4>
-<p>Stand-alone function, outside eventlistener;</p>
-<pre><code class="language-html">&lt;button data-do=&quot;hideMenu&quot;&gt;hide menu&lt;/div&gt;
-&lt;div class=&quot;menu&quot;&gt;
-    menustuff...
-&lt;/div&gt;
-</code></pre>
-<pre><code class="language-js">eventCallback('button[data-do=&quot;hideMenu&quot;]', (target) =&gt; {
-    hideSomething(target);
-}, false)
-</code></pre>
-<h4>How it works</h4>
-<p>When the function is launched it watches the target element of the eventlistener. If the css-selector of this element matches the given selector the callback will be executed.</p>
-<p>So you could have a couple of buttons, with like a data-attribute, with inside them an icon and some span-elements. What would happen in a normal case: you'd click inside the button, on a span. But on the click event you want to return the value of the data-attribute. Since you clicked on that span element inside the button it would return nothing and probably break a function or two since it doesn't returns a value.</p>
-<p>Now with this function you'd click inside the button, but with the css-selector set to something like <code>button[data-do]</code> you could click inside the button, on a span, the function would only return the button, so the css-selector works like a filter and will select the element closest to it.</p>
-<p>For more information about this aspect of the function read about the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/closest">closest</a>-function.</p>
-
-        
-        <a class="docs-section__edit d-none d-lg-flex" href="https://github.com/lennertderyck/docs/edit/master/cutlery.js/src/_collections/sections/eventCallback (conflicted copy 2020-08-22 131941).md" target="_blank">
-            <div class="edit__label">
-                <span class="small">Bewerken op GitHub</span> 
-            </div>
-            <i class="uil uil-pen"></i>
-        </a>
     </div>
 
 
@@ -609,7 +408,7 @@ You can use the return-function so you can add the node somewhere</p>
     <hr>
     <h3>Ola 👋</h3>
     <p>This is a section</p>
-    <a href="/cutlery.js/an-other-page">An other page, written in markdown</a>
+    <a href="/an-other-page">An other page, written in markdown</a>
     <hr>
     <h3>Url prefix</h3>
     <p>Change the url prefix in .eleventy.js</p>
@@ -631,7 +430,7 @@ You can use the return-function so you can add the node somewhere</p>
 </footer>
     
     <!-- scripts -->
-    <script type="module" src="/cutlery.js/static/js/app.js"></script>
+    <script type="module" src="/static/js/app.js"></script>
     
     <script>
         /* Initialize feather icons */
