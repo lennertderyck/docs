@@ -36,7 +36,7 @@ const {node, Element, ...} = require('cutleryjs/dist/js/legacy.min.js')
 Import cutlery directly in a javascript-file using ESM.
 
 ```js
-import {node, Element, ...} from 'https://unpkg.com/browse/cutleryjs/dist/js/index.js'
+import {node, Element, ...} from 'https://unpkg.com/cutleryjs/dist/js/index.js'
 ```
 
 #### CSS
@@ -58,7 +58,7 @@ If you use Parcel then you can include the scss file directly in your html file
 Add the included css by adding a stylesheet to your project pages
 
 ```html
-<link rel="stylesheet" href="https://unpkg.com/browse/cutleryjs/dist/css/index.css">
+<link rel="stylesheet" href="https://unpkg.com/cutleryjs/dist/css/index.css">
 ```
 
 
