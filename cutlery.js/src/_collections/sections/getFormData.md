@@ -34,7 +34,7 @@ window.eventListener('submit', () => {
 
 It's far more convenient than manually selecting all form elements and getting their values.
 
-Just one function returns all the function.
+Just one function returns all the values.
 
 #### Return of input-types
 This is how values will be returned from different types of input fields.
