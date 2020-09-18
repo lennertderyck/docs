@@ -42,6 +42,9 @@ This is how values will be returned from different types of input fields.
 **text | passwords | textarea**<br>
 Just text will be returned
 
+**checkbox**<br>
+Returns the value if checked or else ```false```
+
 **number | ranges**<br>
 These values will be converted in numbers and returned
 
