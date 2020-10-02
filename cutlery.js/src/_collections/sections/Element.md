@@ -96,5 +96,5 @@ You can easily log the element so you can evaluate the result.
 element.log();
 ```
 
-**Use the return-function**
+**Use the return-function**<br>
 You can use the return-function so you can add the node somewhere 

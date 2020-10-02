@@ -18,11 +18,13 @@ const newUserData = getFormData(newUserForm); // returns Map object
 </code></pre>
 <h4>Why this function</h4>
 <p>It's far more convenient than manually selecting all form elements and getting their values.</p>
-<p>Just one function returns all the function.</p>
+<p>Just one function returns all the values.</p>
 <h4>Return of input-types</h4>
 <p>This is how values will be returned from different types of input fields.</p>
 <p><strong>text | passwords | textarea</strong><br>
 Just text will be returned</p>
+<p><strong>checkbox</strong><br>
+Returns the value if checked or else <code>false</code></p>
 <p><strong>number | ranges</strong><br>
 These values will be converted in numbers and returned</p>
 <p><strong>file</strong><br>

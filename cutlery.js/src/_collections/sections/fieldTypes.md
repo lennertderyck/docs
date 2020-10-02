@@ -10,7 +10,7 @@ description: Returns the fieldtype of an input-element
 
 When the node you assign to the function is a form-element, than the function will return a Map object. The keys are the name-attribute-values of the input-elements. Input-elements without a name-attribute will be ignored.
 
-In this function is the [returnTag](#returntag)-function used.
+> In this function is the [returnTag](#returntag)-function used.
 
 ```js
 const inputField = fieldTypes('#newUserForm > #newUserName');

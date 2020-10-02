@@ -1,0 +1,32 @@
+<ul>
+<li><strong>eventtype</strong> <em>string</em>: the name of the eventtype, works with the &quot;on&quot;-prefix and without</li>
+</ul>
+<hr>
+<p>This function is easy when you don't want to define a full eventlistenerfunction with callback in it. Instead the callback is directly coupled to the element and the eventtype.</p>
+<blockquote>
+<p>In these examples the <a href="#node">node function</a> is used.</p>
+</blockquote>
+<h4>Use</h4>
+<p>Just select a node, chain the <code>event</code> method to it and set the callback-function.</p>
+<pre><code class="language-js">node('body').event('onclick')(() =&gt; {
+    console.log('the body node was clicked')
+})
+</code></pre>
+<p>You can also leave the &quot;on&quot; prefix for the event type out.</p>
+<pre><code class="language-js">node('body').event('click')(() =&gt; {
+    console.log('the body node was clicked')
+})
+</code></pre>
+<blockquote>
+<p>Note that the callback-functions is nameless. The callback-function is directly added after the <code>event</code> function.</p>
+</blockquote>
+<h4>Use with multiple nodes</h4>
+<p>This function is made to work with a single node, create a loop to use it with multiple nodes (like when you use <code>querySelectorAll</code>).</p>
+<pre><code class="language-js">// true in the node function-function means you want to get all nodes with this selector
+node('.clickable', true).forEach((el) =&gt; {
+    el.event('click')(() =&gt; {
+        console.log('the body node was clicked')
+    })
+})
+</code></pre>
+<!-- Uitbreiding naar type (wifi/cable/...) -->
