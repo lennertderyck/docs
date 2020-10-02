@@ -29,6 +29,10 @@ module.exports = (eleventyConfig) => {
         return collection.getFilteredByGlob("./src/_collections/sections/*.md");
     });
     
+    eleventyConfig.addShortcode("lastSiteUpdate", () => {
+        return new Date();
+    });
+    
     return {
         pathPrefix: options.name,
         dir: {

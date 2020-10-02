@@ -40,6 +40,3 @@ node('.clickable', true).forEach((el) => {
     })
 })
 ```
-
-
-<!-- Uitbreiding naar type (wifi/cable/...) -->
