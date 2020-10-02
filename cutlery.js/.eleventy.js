@@ -1,4 +1,4 @@
-const fs = require("fs");
+const moment = require('moment');
 
 const options = {
     baseUrl: '../dist/',
@@ -30,7 +30,8 @@ module.exports = (eleventyConfig) => {
     });
     
     eleventyConfig.addShortcode("lastSiteUpdate", () => {
-        return new Date();
+        // return moment().format('ddd, D MMM YYYY h:mm:ss');;
+        return moment().format('ddd, D MMM YYYY');;
     });
     
     return {
