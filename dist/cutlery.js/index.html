@@ -599,6 +599,9 @@ A file field will return all properties of this field as an json object.</p>
 <p>In these examples the <a href="#node">node function</a> is used.</p>
 </blockquote>
 <h4>Use</h4>
+<blockquote>
+<p>You don't need to import the <code>event</code> function. Just by importing the file or another function the <code>event</code> function is loaded.</p>
+</blockquote>
 <p>Just select a node, chain the <code>event</code> method to it and set the callback-function.</p>
 <pre><code class="language-js">node('body').event('onclick')(() =&gt; {
     console.log('the body node was clicked')
@@ -654,7 +657,7 @@ node('.clickable', true).forEach((el) =&gt; {
     <footer>
     <div class="container py-5 d-flex justify-content-between">
         <small><span data-replace="copyright"></span></small>
-        <small>Last updated on Fri, 2 Oct 2020 ･ Sourcecode on <a href="https://github.com/lennertderyck/docs/tree/master/cutlery.js">GitHub</a></small>
+        <small>Last updated on Sat, 3 Oct 2020 ･ Sourcecode on <a href="https://github.com/lennertderyck/docs/tree/master/cutlery.js">GitHub</a></small>
     </div>
 </footer>
 

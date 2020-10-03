@@ -14,6 +14,8 @@ This function is easy when you don't want to define a full eventlistenerfunction
 
 #### Use
 
+> You don't need to import the ```event``` function. Just by importing the file or another function the ```event``` function is loaded.
+
 Just select a node, chain the ```event``` method to it and set the callback-function.
 ```js
 node('body').event('onclick')(() => {
